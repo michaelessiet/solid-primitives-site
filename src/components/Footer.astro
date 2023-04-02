@@ -2,12 +2,17 @@
 const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
+<footer
+  class={`bg-hero-gradient space-x-6 text-gray-300`}
+>
+  <a href="/"> Home</a>
+  <a href="https://twitter.com/solid_js"> Twitter</a>
+  <a href="#TODO"> Github</a>
 </footer>
+
 <style>
-	footer {
-		padding: 25px;
-		text-align: center;
-	}
+  footer {
+    padding: 45px;
+    text-align: center;
+  }
 </style>
