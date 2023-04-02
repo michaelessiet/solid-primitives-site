@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import SectionLink from "../components/SectionLink.astro";
-import { truncateText } from "../utils"
+import { truncateText } from "../utils";
 
 const posts = (await getCollection("posts")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -25,15 +25,18 @@ const posts = (await getCollection("posts")).sort(
       <section class="max-w-5xl space-y-12 p-12 m-auto">
         {
           posts.map((post) => {
-						return (
-
-            <div class="space-y-4">
-              <SectionLink href={`/blog/${post.slug}/`}>{post.data.title}</SectionLink>
-							<img src={post.data.heroImage} class="rounded-lg"/>
-							<p>{post.data.description}</p>
-            </div>
-						)
-					})
+            return (
+              <div class="space-y-4">
+                <SectionLink href={`/posts/${post.slug}/`}>
+                  {post.data.title}
+                </SectionLink>
+                <a href={`/posts/${post.slug}/`}>
+                  <img src={post.data.heroImage} class="rounded-lg" />
+                </a>
+                <p>{post.data.description}</p>
+              </div>
+            );
+          })
         }
       </section>
     </main>
